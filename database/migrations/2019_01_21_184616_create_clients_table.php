@@ -17,7 +17,8 @@ class CreateClientsTable extends Migration
             $table->increments('id');
             $table->string('surname');
             $table->string('name');
-            $table->string('patronymic');
+            $table->string('patronymic')->nullable();
+            $table->integer('age')->default(18);
             $table->timestamps();
         });
     }
