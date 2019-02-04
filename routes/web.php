@@ -1,20 +1,19 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use App\Client;
 
-Route::get('/clients', 'ClientsController@list')->name('clients');
-Route::get('/clients/add', 'ClientsController@add')->name('clients.add');
-Route::post('/clients/save', 'ClientsController@save')->name('clients.save');
-Route::get('/clients/edit', 'ClientsController@edit')->name('clients.edit');
-Route::post('/clients/update', 'ClientsController@update')->name('clients.update');
-Route::get('/clients/delete', 'ClientsController@delete')->name('clients.delete');
-// sxdfvsdvsdv
+
+Route::get('/', function () {
+// dd($clients);
+    return view('pages.welcome');
+});
+
+Route::get('/list', 'ClientController@list') -> name('client.list');
+Route::get('/add', 'ClientController@add') -> name('client.add');
+Route::get('/del', 'ClientController@del') -> name('client.del');
+Route::get('/edit', 'ClientController@edit') -> name('client.edit');
+
+Route::post('/create', 'ClientController@create') -> name('client.create');
+Route::post('/update', 'ClientController@update') -> name('client.update');
+
+
