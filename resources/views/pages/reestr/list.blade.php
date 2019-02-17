@@ -3,9 +3,6 @@
 
 @section ('content')
 
-
-
-
 <div class="row">
 
       <div class="col-sm-4">
@@ -27,7 +24,7 @@
           </table>
       </div>
 </div>
-<h5 align="left"><a href="{{ route('client.add')}}"> Добавить новый реестр</a></h5>
+<h5 align="left"><a href="{{ route('reestr.add')}}"> Добавить новый реестр</a></h5>
 
 
 @endsection

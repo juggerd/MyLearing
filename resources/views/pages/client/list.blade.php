@@ -32,8 +32,8 @@
                                     ['id'=>$client->id])}}"> Изменить </a> |
                         <a href="{{ route('client.del',
                                     ['id'=>$client->id])}}"> Удалить </a> ||
-                        <a href="{{ route('client.reestrs_list',
-                                    ['id'=>$client->id])}}" > Реестры </a> |
+                        <a href="{{ route('reestr.list',
+                                    ['client_id'=>$client->id])}}" > Реестры </a> |
                         </td>
                     </tr>
                 @endforeach

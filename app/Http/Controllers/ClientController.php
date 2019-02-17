@@ -12,20 +12,21 @@ class ClientController extends Controller
 
     public function list() {
         $clients=Client::all();
-        return view('pages.list',['clients'=> $clients]);
+        return view('pages.client.list',['clients'=> $clients]);
     }
 
 
     public function add() {
-        return view('pages.form_add');
+        return view('pages.client.form_add');
     }
 
     public function edit(Request $request) {
 
         $client = Client::findOrFail($request->id);
-        return view('pages.form_edd',['client'=>$client]);
+        return view('pages.client.form_edd',['client'=>$client]);
 
     }
+
     public function create(Request $request) {
         $validator = Validator::make($request->all(), [
             'surname'    => 'required',
@@ -81,11 +82,6 @@ class ClientController extends Controller
         return redirect(route('client.list'));
     }
 
-
-    public function reestrs_list(Request $request) {
-        $reestrs = Client::findOrFail($request->id)->reestrs;
-        return view('pages.client_reestrs',['reestrs' => $reestrs]);
-    }
 
 
 }
