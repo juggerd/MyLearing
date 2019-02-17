@@ -15,16 +15,16 @@ class ClientController extends Controller
         return view('pages.list',['clients'=> $clients]);
     }
 
-    
+
     public function add() {
-        return view('pages.form_add');    
+        return view('pages.form_add');
     }
 
     public function edit(Request $request) {
-        
+
         $client = Client::findOrFail($request->id);
-        return view('pages.form_edd',['client'=>$client]);    
-           
+        return view('pages.form_edd',['client'=>$client]);
+
     }
     public function create(Request $request) {
         $validator = Validator::make($request->all(), [
@@ -40,16 +40,16 @@ class ClientController extends Controller
                 ->withInput();
         }
         $valid = $validator->getData();
-             
+
         $client= new Client;
         $client->surname      =   $valid['surname'];
         $client->name         =   $valid['name'];
         $client->patronymic   =   $valid['patronymic'];
         $client->birthday     =   $valid['birthday'];
-        $client->save();   
+        $client->save();
         return redirect(route('client.list'));
     }
-    
+
     public function update(Request $request) {
         $validator = Validator::make($request->all(), [
             'surname'    => 'required',
@@ -64,22 +64,28 @@ class ClientController extends Controller
                 ->withInput();
         }
         $valid = $validator->getData();
-        
+
         $client= Client::findOrFail($valid['id']);
         $client->surname      =   $valid['surname'];
         $client->name         =   $valid['name'];
         $client->patronymic   =   $valid['patronymic'];
         $client->birthday     =   $valid['birthday'];
-        $client->update();   
+        $client->update();
         return redirect(route('client.list'));
     }
-    
-    
+
+
     public function del(Request $request) {
-        $client= Client::findOrFail($request->id); 
-        $client->delete();   
-        return redirect(route('client.list')); 
+        $client= Client::findOrFail($request->id);
+        $client->delete();
+        return redirect(route('client.list'));
     }
 
- 
+
+    public function reestrs_list(Request $request) {
+        $reestrs = Client::findOrFail($request->id)->reestrs;
+        return view('pages.client_reestrs',['reestrs' => $reestrs]);
+    }
+
+
 }

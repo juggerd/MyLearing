@@ -12,8 +12,7 @@ Route::get('/list', 'ClientController@list') -> name('client.list');
 Route::get('/add', 'ClientController@add') -> name('client.add');
 Route::get('/del', 'ClientController@del') -> name('client.del');
 Route::get('/edit', 'ClientController@edit') -> name('client.edit');
+Route::get('/client/reestrs', 'ClientController@reestrs_list') -> name('client.reestrs_list');
 
 Route::post('/create', 'ClientController@create') -> name('client.create');
 Route::post('/update', 'ClientController@update') -> name('client.update');
-
-

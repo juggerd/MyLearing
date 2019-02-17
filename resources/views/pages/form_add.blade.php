@@ -1,4 +1,4 @@
-@extends ('templates.header_footer')
+@extends ('layouts.header_footer')
 
 @section ('content')
 

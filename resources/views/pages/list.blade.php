@@ -1,5 +1,5 @@
 
-@extends ('templates.header_footer')
+@extends ('layouts.header_footer')
 
 @section ('content')
 
@@ -12,24 +12,28 @@
     <div class="col-sm-7">
 
         <table class="table">
-            <thead class="thead-dark">
+            <thead class="thead-dark" align="center">
                 <th>Фамилия</th>
                 <th>Имя</th>
                 <th>Отчество</th>
                 <th>Дата рождения</th>
-                <th>Операции</th>
+                <th>Действия</th>
             </thead>
 
-            <tbody>
+            <tbody align="center">
                 @foreach($clients as $client)
                     <tr>
-                        <td> {{ $client-> surname    }}  </td>
-                        <td> {{ $client-> name       }}  </td>
-                        <td> {{ $client-> patronymic }}  </td>
-                        <td> {{ $client-> birthday   }}  </td>
+                        <td> {{ $client -> surname    }}  </td>
+                        <td> {{ $client -> name       }}  </td>
+                        <td> {{ $client -> patronymic }}  </td>
+                        <td> {{ $client -> birthday   }}  </td>
                         <td>
-                        <a href="{{ route('client.edit', ['id'=>$client->id])}}"> Изменить   </a> |
-                        <a href="{{ route('client.del',  ['id'=>$client->id])}}" >  Удалить     </a>
+                        <a href="{{ route('client.edit',
+                                    ['id'=>$client->id])}}"> Изменить </a> |
+                        <a href="{{ route('client.del',
+                                    ['id'=>$client->id])}}"> Удалить </a> ||
+                        <a href="{{ route('client.reestrs_list',
+                                    ['id'=>$client->id])}}" > Реестры </a> |
                         </td>
                     </tr>
                 @endforeach
@@ -38,24 +42,6 @@
 
     </div>
 
-<div class="col-sm">
-    <h3 align="center"> Список реестров</h3>
-    <table class="table">
-            <thead class="thead-dark">
-                <th align="center">Начало</th>
-                <th>Окончание</th>
-            </thead>
-
-            <tbody>
-                @foreach($clients as $client)
-                    <tr>
-                        <td> ..... </td>
-                        <td> ..... </td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-</div>
 
 </div>
 
