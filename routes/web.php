@@ -19,3 +19,4 @@ Route::post('/update', 'ClientController@update') -> name('client.update');
 Route::get('/reestrs', 'ReestrController@list') -> name('reestr.list');
 Route::post('reestr/create', 'ReestrController@create') -> name('reestr.create');
 Route::get('/reestrs/add', 'ReestrController@add') -> name('reestr.add');
+Route::get('reestr/create', 'ReestrController@create') -> name('reestr.create');

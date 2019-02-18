@@ -7,6 +7,9 @@
 
       <div class="col-sm-4">
           <h3 align="center"> Список реестров</h3>
+          <h5 align="left">
+          <a href="{{ route('reestr.add',
+                    ['client_id'=>$client])}}"> Добавить новый реестр</a></h5>
           <table class="table">
                   <thead  class="thead-dark" align="center">
                       <th>Начало</th>
@@ -24,7 +27,6 @@
           </table>
       </div>
 </div>
-<h5 align="left"><a href="{{ route('reestr.add')}}"> Добавить новый реестр</a></h5>
-
+<h4 align="left"><a href="{{ route('client.list')}}">Перейти к списку клиентов</a></h4>
 
 @endsection
