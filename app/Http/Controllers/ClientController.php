@@ -11,8 +11,9 @@ class ClientController extends Controller
 {
 
     public function list() {
-        $clients=Client::all();
-        return view('pages.client.list',['clients'=> $clients]);
+        $clients = Client::all();
+        
+        return view('pages.client.list',['clients' => $clients]);
     }
 
 

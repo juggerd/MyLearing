@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Client;
 use App\Models\Reestr;
+
 class ReestrController extends Controller
 {
   public function list(Request $request) {
@@ -19,12 +20,12 @@ class ReestrController extends Controller
 
 
   public function create(Request $request) {
-
-    $reestr = new Reestr;
-    $reestr->date_from      =  $request->date_from;
-    $reestr->date_to        =  $request->date_to;
-    $reestr->client_id      =  $request->client_id;   
-    $reestr->save();
+    $client = Client::find($request->client_id);
+    $reestr = new Reestr([
+                          'date_from' => $request->date_from,
+                          'date_to'   => $request->date_to 
+                          ]);
+    $client->reestrs->save($reestr);
     return redirect(route('reestr.list',['client_id'=>$request->client_id]));
 
 
